@@ -22,13 +22,13 @@ export default function TicketForm({ dispatch, editingTicket }) {
       setTitle(editingTicket.title)
       setDescription(editingTicket.description)
       setPriority(editingTicket.priority)
-    }else{
+    } else {
       clearForm();
     }
 
   }, [editingTicket])
 
-  console.log("")
+
 
 
   const handlerSubmit = (e) => {
@@ -49,6 +49,15 @@ export default function TicketForm({ dispatch, editingTicket }) {
 
     clearForm();
   };
+
+  const handleclear=()=>{
+
+    dispatch({
+      type:"CLEAR_EDITING_TICKET",
+      payload:null
+    })
+
+  }
 
   return (
     <form onSubmit={handlerSubmit} className="ticket-form">
@@ -92,7 +101,12 @@ export default function TicketForm({ dispatch, editingTicket }) {
       <button type="submit" className="button">
         Submit
       </button>
+     
+     {
+      (editingTicket && 
+        <button className="button" onClick={handleclear}>cancel edit</button>
+      )
+     }
     </form>
   );
 }
- 
