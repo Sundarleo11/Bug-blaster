@@ -2,7 +2,6 @@ import React from "react";
 import TicketItem from "./TicketItem";
 
 export default function TicketList({ tickets, dispatch }) {
-    console.log("tickets",tickets);
   return (
     <div className="ticket-list">
       {tickets.map((ticket) => (
